@@ -129,9 +129,9 @@ if __name__ == "__main__":
     top_list = top_titles(movies_series, 3)
     print(top_list)
     
-    # Find all Movies/Series
+    # Find particular Movies/Series
     result = search(movies_series, "Avatar")
-    print(result)
+    print(f"List of Avatar serie {result}")
 
     
     number_of_episodes(movies_series, "Dr. House")
