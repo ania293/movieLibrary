@@ -34,21 +34,22 @@ class Serie(Movie):
 
 
 ## Functions
-def get_movies(list):
-    movies = []
+    
+def get_list(list, typ):
+    new_list = []
     for i in range(len(list)):
-        if isinstance(list[i], Movie) and not isinstance(list[i], Serie):
-            movies.append(list[i])
-    movies_sort = sorted(movies, key = lambda x: x.title)
-    return movies_sort
+        if type(list[i]) == typ:
+            new_list.append(list[i])
+    new_list_sorted = sorted(new_list, key= lambda x: x.title)
+    return new_list_sorted
+
+def get_movies(list):
+    movies = get_list(list, Movie)
+    return movies
 
 def get_series(list):
-    series = []
-    for i in range(len(list)):
-        if isinstance(list[i], Serie):
-            series.append(list[i])
-    series_sort = sorted(series, key= lambda x: x.title)
-    return series_sort
+    series = get_list(list, Serie)
+    return series
 
 def search(list, title):
     i=0
@@ -72,7 +73,7 @@ def generate_view(lista):
     
 def top_titles(lista, top_number):
     lista_sorted = sorted(lista, key= lambda x: x.views, reverse=True)
-    return lista_sorted[0:top_number]
+    return lista_sorted[:top_number]
 
 def add_serie(title, year, genre, season, num_of_episodes):
     list_of_episodes = []
