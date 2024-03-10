@@ -36,10 +36,7 @@ class Serie(Movie):
 ## Functions
     
 def get_list(list, typ):
-    new_list = []
-    for i in range(len(list)):
-        if type(list[i]) == typ:
-            new_list.append(list[i])
+    new_list = [x for x in list if type(x) == typ]
     new_list_sorted = sorted(new_list, key= lambda x: x.title)
     return new_list_sorted
 
